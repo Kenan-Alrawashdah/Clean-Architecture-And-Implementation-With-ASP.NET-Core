@@ -1,0 +1,17 @@
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.AssemblyInfo.cs
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\bin\Debug\net6.0\Employee.Infrastructure.deps.json
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\bin\Debug\net6.0\Employee.Infrastructure.dll
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\bin\Debug\net6.0\Employee.Infrastructure.pdb
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\bin\Debug\net6.0\Employee.Core.dll
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\bin\Debug\net6.0\Employee.Core.pdb
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.csproj.CopyComplete
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.dll
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\refint\Employee.Infrastructure.dll
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.pdb
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\ref\Employee.Infrastructure.dll
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\bin\Debug\net6.0\Employee.Infrastructure.runtimeconfig.json
+C:\Users\User\source\repos\EmployeeManagementCleanArchitecure\Employee.Infrastructure\obj\Debug\net6.0\Employee.Infrastructure.genruntimeconfig.cache

@@ -42,30 +42,54 @@ namespace Employee.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<EmployeeResponse>>> GetEmployees()
         {
-            return await _mediator.Send(new GetEmployeesQuery());
+            var respons = new ResponsAPI<List<EmployeeResponse>>();
+
+            try
+            {
+               respons.Data = await _mediator.Send(new GetEmployeesQuery());
+            }
+            catch(CustomExceptions ex)
+            {
+                respons.AddError(ex.Message);
+                return BadRequest(respons);
+            }
+            return Ok(respons);
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{employeeId:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<EmployeeResponse>> GetEmployeeById(int employeeId)
         {
-            return await _mediator.Send(new GetEmployeeByIdQuery() { Id = employeeId });
+            var respons = new ResponsAPI<EmployeeResponse>();
+            try
+            {
+                respons.Data = await _mediator.Send(new GetEmployeeByIdQuery() { Id = employeeId });
+            }
+            catch(Exception ex)
+            {
+                respons.AddError(ex.Message);
+                return BadRequest(respons);
+            }
+            return Ok(respons);
         }
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<EmployeeResponse>> DeleteEmployees(int employeeId)
         {
+            var respons = new ResponsAPI<string>();
             try
             {
                 await _mediator.Send(new RemoveEmployeeCommand() { Id = employeeId });
+                respons.Data = "Employee Deleted";
             }
             catch (Exception ex)
             {
-                return NotFound(ex.Message);
+                respons.AddError("Something is error");
+                return NotFound(respons);
             }
 
-            return Ok();
+            return Ok(respons);
         }
     }
 }

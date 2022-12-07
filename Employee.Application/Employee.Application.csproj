@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Employee.Core\Employee.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Employees\Commands\UpdateEmployee\" />
-  </ItemGroup>
-
 </Project>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Employee.Infrastructure.Repositories.Base
 {
-    public class Repository<T> : IRepository<T> where T : class, new()
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly EmployeeContext _context;
 
@@ -42,15 +42,11 @@ namespace Employee.Infrastructure.Repositories.Base
             return await _context.Set<T>().FindAsync(id)  ;
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(UpdateAsync)} entity must not be null");
-            }
-
-                _context.Update(entity);
+                 _context.Update(entity);
                 await _context.SaveChangesAsync();
+            return entity;
         }
     }
 }

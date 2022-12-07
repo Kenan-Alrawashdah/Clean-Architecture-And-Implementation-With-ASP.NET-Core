@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Employee.Application.Features.Employees.Commands.CreateEmployee;
+using Employee.Application.Features.Employees.Commands.UpdateEmployee;
 using Employee.Application.Features.Employees.Responses;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Employee.Application.Features.Employees.Mappers
         {
             CreateMap<Core.Entities.Employee, EmployeeResponse>().ReverseMap();
             CreateMap<Core.Entities.Employee, CreateEmployeeCommand>().ReverseMap();
+            CreateMap<Core.Entities.Employee, UpdateEmployeeCommand>().ReverseMap();
         }
     }
 }

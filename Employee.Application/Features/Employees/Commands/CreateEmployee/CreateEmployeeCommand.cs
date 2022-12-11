@@ -10,7 +10,6 @@ namespace Employee.Application.Features.Employees.Commands.CreateEmployee
 {
     public class CreateEmployeeCommand : IRequest<EmployeeResponse>
     {
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }

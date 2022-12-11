@@ -1,4 +1,5 @@
-﻿using Employee.Application.Features.Employees.Commands.CreateEmployee;
+﻿using Employee.Application.Exceptions;
+using Employee.Application.Features.Employees.Commands.CreateEmployee;
 using Employee.Application.Features.Employees.Mappers;
 using Employee.Application.Features.Employees.Responses;
 using Employee.Core.Repositories;
@@ -22,12 +23,22 @@ namespace Employee.Application.Features.Employees.Commands.UpdateEmployee
         public async Task<EmployeeResponse> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
             //TODO
-            var employeeEntity = EmployeeMapper.Mapper.Map<Core.Entities.Employee>(request);
+            UpdateEmployeeCommandValidator validations = new UpdateEmployeeCommandValidator();
+            var result = await validations.ValidateAsync(request);
 
+            if(result.Errors.Any())
+            {
+                throw new CustomExceptions("Update emplyee is not vaild", result.Errors.Select(messageErr => messageErr.ErrorMessage).ToList());
+            }
+            var em = await _employeeRepository.GetByIdAsync(request.Id);
+            
+            if(em == null) {
+                throw new CustomExceptions("Update emplyee is not vaild", new List<string> { $"No employee found with the id {request.Id}" });
+            }
+            var employeeEntity = EmployeeMapper.Mapper.Map<UpdateEmployeeCommand, Core.Entities.Employee>(request, em);
             var newEmployee = await _employeeRepository.UpdateAsync(employeeEntity);
-            var employeeResponse = EmployeeMapper.Mapper.Map<EmployeeResponse>(newEmployee);
 
-            return employeeResponse;
+            return EmployeeMapper.Mapper.Map<EmployeeResponse>(newEmployee);
         }
     }
 }

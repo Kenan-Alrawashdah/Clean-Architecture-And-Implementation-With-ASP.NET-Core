@@ -24,7 +24,7 @@ namespace Employee.Application.Features.Employees.Commands.CreateEmployee
         public async Task<EmployeeResponse> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
 
-            CreateCommandValidator validations = new CreateCommandValidator();
+            CreateEmployeeCommandValidator validations = new CreateEmployeeCommandValidator();
             var result = await validations.ValidateAsync(request);
 
             if (result.Errors.Any()) {

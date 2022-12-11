@@ -1,6 +1,7 @@
 ﻿using Employee.Application.Exceptions;
 using Employee.Application.Features.Employees.Commands.CreateEmployee;
 using Employee.Application.Features.Employees.Commands.RemoveEmployee;
+using Employee.Application.Features.Employees.Commands.UpdateEmployee;
 using Employee.Application.Features.Employees.Queries.GetEmployeeById;
 using Employee.Application.Features.Employees.Queries.GetEmployees;
 using Employee.Application.Features.Employees.Responses;
@@ -63,7 +64,13 @@ namespace Employee.API.Controllers
             var respons = new ResponsAPI<EmployeeResponse>();
             try
             {
-                respons.Data = await _mediator.Send(new GetEmployeeByIdQuery() { Id = employeeId });
+                var result = await _mediator.Send(new GetEmployeeByIdQuery() { Id = employeeId });
+                  if(result == null)
+                {
+                    respons.AddError($"No employee found with the id {employeeId}");
+                    return NotFound(respons);
+                }
+                respons.Data = result;
             }
             catch(Exception ex)
             {
@@ -80,16 +87,42 @@ namespace Employee.API.Controllers
             var respons = new ResponsAPI<string>();
             try
             {
+                //TODO
+                //var result = await _mediator.Send(new GetEmployeeByIdQuery() { Id = employeeId });
+                //if (result == null)
+                //{
+                //    respons.AddError($"No employee found with the id {employeeId}");
+                //    return NotFound(respons);
+                //}
+
                 await _mediator.Send(new RemoveEmployeeCommand() { Id = employeeId });
                 respons.Data = "Employee Deleted";
             }
             catch (Exception ex)
             {
-                respons.AddError("Something is error");
-                return NotFound(respons);
+                respons.AddError("there is error");
+                return BadRequest(respons);
             }
 
             return Ok(respons);
         }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<EmployeeResponse>> UpdateEmployee([FromBody] UpdateEmployeeCommand command)
+        {
+            var respons = new ResponsAPI<EmployeeResponse>();
+            try
+            {
+                respons.Data = await _mediator.Send(command);
+            }
+            catch(CustomExceptions ex)
+            {
+                ex.ErrorMessages.ForEach(message => respons.AddError(message));
+                return BadRequest(respons);
+            }
+            return Ok(respons);
+        }
+
     }
 }

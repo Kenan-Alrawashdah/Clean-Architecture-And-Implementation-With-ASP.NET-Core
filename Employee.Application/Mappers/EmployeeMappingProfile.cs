@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
+using Employee.Application.Dtos;
 using Employee.Application.Features.Employees.Commands.CreateEmployee;
 using Employee.Application.Features.Employees.Commands.UpdateEmployee;
-using Employee.Application.Features.Employees.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee.Application.Features.Employees.Mappers
+namespace Employee.Application.Mappers
 {
     public class EmployeeMappingProfile : Profile
     {

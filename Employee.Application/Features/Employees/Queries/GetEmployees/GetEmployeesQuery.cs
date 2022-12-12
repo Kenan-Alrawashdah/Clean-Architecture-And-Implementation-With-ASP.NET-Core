@@ -1,4 +1,4 @@
-﻿using Employee.Application.Features.Employees.Responses;
+﻿using Employee.Application.Dtos;
 using MediatR;
 using System;
 using System.Collections.Generic;

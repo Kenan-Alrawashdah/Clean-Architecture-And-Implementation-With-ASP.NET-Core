@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee.Application.Features.Employees.Mappers
+namespace Employee.Application.Mappers
 {
     public class EmployeeMapper
     {
